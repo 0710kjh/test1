@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이집트 유물 퀴즈 게임</title>
+    <!-- 외부 CSS 파일 연결 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 배경 및 오브젝트를 담는 메인 컨테이너 -->
+    <div class="background-container">
+        <h1>이집트 유물 퀴즈</h1>
+
+        <!-- 클릭 가능한 4개의 석상 오브젝트 -->
+        <!-- 각 div는 data-quiz 속성을 통해 어떤 퀴즈인지 식별합니다. -->
+        <div class="statue-object" id="anubis" data-quiz="anubis">
+            <span>아누비스 석상</span>
+        </div>
+        <div class="statue-object" id="mummy" data-quiz="mummy">
+            <span>미라 석상</span>
+        </div>
+        <div class="statue-object" id="sphinx" data-quiz="sphinx">
+            <span>스핑크스 석상</span>
+        </div>
+        <div class="statue-object" id="pharaoh" data-quiz="pharaoh">
+            <span>파라오 석상</span>
+        </div>
+    </div>
+
+    <!-- 퀴즈 모달 창 (초기에는 숨겨져 있음) -->
+    <div id="quiz-modal" class="modal">
+        <div class="modal-content">
+            <!-- 모달 닫기 버튼 -->
+            <span class="close-button">&times;</span>
+            <!-- 퀴즈 질문이 표시될 영역 -->
+            <p id="quiz-question"></p>
+            <!-- 사용자 답변 입력 필드 -->
+            <input type="text" id="user-answer" placeholder="정답을 입력하세요">
+            <!-- 정답 확인 버튼 -->
+            <button id="submit-answer">정답 확인</button>
+            <!-- 결과 메시지가 표시될 영역 -->
+            <p id="result-message"></p>
+        </div>
+    </div>
+
+    <!-- 외부 JavaScript 파일 연결 -->
+    <script src="script.js"></script>
+</body>
+</html>

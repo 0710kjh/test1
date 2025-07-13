@@ -1,0 +1,172 @@
+/* 전체 페이지의 기본 스타일 설정 */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: white;
+}
+
+/* 배경 이미지를 설정하고 전체 화면을 채우도록 함 */
+.background-container {
+    width: 100%;
+    height: 100%;
+    background-image: url('https://raw.githubusercontent.com/0710kjh/test1/refs/heads/main/bgimg.jpg');
+    background-size: cover; /* 이미지가 컨테이너를 꽉 채우도록 설정 */
+    background-position: center; /* 이미지를 중앙에 위치시킴 */
+    background-repeat: no-repeat; /* 이미지 반복 없음 */
+    position: relative; /* 자식 요소의 position: absolute의 기준이 됨 */
+    overflow: hidden; /* 컨테이너를 벗어나는 콘텐츠 숨김 */
+}
+
+/* 페이지 상단 제목 스타일 */
+.background-container h1 {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 3em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* 클릭 가능한 석상 오브젝트의 공통 스타일 */
+.statue-object {
+    position: absolute; /* 부모 요소(background-container)를 기준으로 위치 지정 */
+    width: 150px;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 배경 */
+    border: 2px solid #fff;
+    border-radius: 10px;
+    cursor: pointer; /* 마우스를 올렸을 때 포인터 모양으로 변경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2em;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* 오브젝트에 마우스를 올렸을 때 효과 */
+.statue-object:hover {
+    transform: scale(1.1); /* 약간 확대 */
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* 각 석상 오브젝트의 위치 설정 */
+#anubis {
+    top: 45%;
+    left: 18%;
+}
+
+#mummy {
+    top: 60%;
+    left: 35%;
+}
+
+/* === 수정된 부분: 스핑크스 버튼 위치 조정 === */
+#sphinx {
+    top: 68%;       /* 위에서 68% 위치 */
+    left: 58%;      /* 왼쪽에서 58% 위치 */
+}
+
+#pharaoh {
+    top: 50%;
+    right: 15%;
+}
+
+/* 모달 창의 배경 (화면 전체를 덮는 반투명 레이어) */
+.modal {
+    display: none; /* 초기에는 보이지 않도록 설정 */
+    position: fixed; /* 화면에 고정 */
+    z-index: 1000; /* 다른 요소들보다 위에 표시 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* 반투명 검정 배경 */
+    animation: fadeIn 0.5s; /* 나타날 때 페이드인 효과 */
+}
+
+/* 모달 창의 내용 부분 */
+.modal-content {
+    background-color: #2c2c2c;
+    margin: 15% auto; /* 화면 중앙에 위치 */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: slideIn 0.5s; /* 나타날 때 슬라이드 효과 */
+}
+
+/* 모달 닫기 버튼 */
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* 퀴즈 질문 텍스트 스타일 */
+#quiz-question {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+/* 답변 입력 필드 스타일 */
+#user-answer {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+    font-size: 1em;
+}
+
+/* 정답 확인 버튼 스타일 */
+#submit-answer {
+    background-color: #4CAF50; /* 초록색 배경 */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+#submit-answer:hover {
+    background-color: #45a049; /* 마우스 올렸을 때 약간 더 어두운 초록색 */
+}
+
+/* 결과 메시지 스타일 */
+#result-message {
+    margin-top: 20px;
+    font-size: 1.2em;
+    min-height: 25px; /* 메시지 영역의 최소 높이를 확보하여 레이아웃이 깨지지 않게 함 */
+}
+
+/* 페이드인 애니메이션 */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* 슬라이드인 애니메이션 */
+@keyframes slideIn {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
